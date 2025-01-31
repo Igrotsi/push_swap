@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:52:18 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/30 20:19:08 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:12:47 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,15 @@ void	ss(t_list *stack_a, t_list *stack_b)
 	ft_putstr_fd("ss\n", 1);
 }
 
-void	rotate(t_list *stack, char c)
+void	rotate(t_list **stack, char c)
 {
 	t_list	*first;
 	t_list	*last;
-
-	if (!stack || !stack->next)
+	if (!stack || !(*stack)->next)
 		return ;
-	first = stack;
-	last = ft_lstlast(stack);
-	stack = stack->next;
+	first = *stack;
+	*stack = (*stack)->next;
+	last = ft_lstlast(*stack);
 	last->next = first;
 	first->next = NULL;
 	if (c == 'a')
@@ -70,7 +69,7 @@ void	rotate(t_list *stack, char c)
 
 void	rr(t_list *stack_a, t_list *stack_b)
 {
-	rotate(stack_a, 'c');
-	rotate(stack_b, 'c');
+	rotate(&stack_a, 'c');
+	rotate(&stack_b, 'c');
 	ft_putstr_fd("rr\n", 1);
 }
