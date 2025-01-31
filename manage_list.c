@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:49:27 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/30 10:39:18 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/01/31 05:11:37 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-int	init_stack_a(t_list **stack_a, char **av, int ac)
+void	init_stack_a(t_list **stack_a, char **av, int ac)
 {
-	t_list	*value;
+	 t_list	*value;
 	int		i;
-	int		num;
+	long		num;
 
 	num = 0;
-	i = 1;
+	i = 2;
+	*stack_a = ft_lstnew(ft_atoi(av[1]));
 	while (i < ac)
 	{
 		num = ft_atoi(av[i]);
@@ -69,24 +70,23 @@ int	init_stack_a(t_list **stack_a, char **av, int ac)
 		{
 			ft_putstr_fd("Error: Enter numbers within integer min and max",
 				2);
-			return (-1);
+			EXIT_FAILURE ;
 		}
 		if (contains_duplicate(*stack_a, num) == -1)
-			return (-1);
+			EXIT_FAILURE ;
 		value = ft_lstnew(num);
 		ft_lstadd_back(stack_a, value);
 		i++;
 	}
-	return (0);
 }
 
-t_list	*ft_lstlast(t_list **stack)
+t_list	*ft_lstlast(t_list *stack)
 {
-	if ((*stack) == NULL)
+	if (stack == NULL)
 		return (NULL);
-	while ((*stack)->next)
+	while (stack->next)
 	{
-		(*stack) = (*stack)->next;
+		stack = stack->next;
 	}
 	return (stack);
 }

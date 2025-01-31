@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:39:19 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/30 09:53:29 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/01/31 05:03:44 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_putstr_fd(char *s, int fd)
 
 	i = 0;
 	if (!s)
-		return ;
+		return (-1);
 	while (s[i])
 	{
 		if (write(fd, &s[i], 1) == -1)
@@ -42,22 +42,33 @@ int	ft_putstr_fd(char *s, int fd)
 
 int	contains_duplicate(t_list *lst, int number)
 {
-	while (lst)
+	t_list	*current;
+	t_list	*next;
+
+	if (!lst)
+		EXIT_FAILURE;
+	current = lst;
+	while (current)
 	{
-		if (lst->number == number)
+		next = current->next;
+		while (next)
 		{
-			ft_putstr_fd("Error: duplicate numbers detected\n", 2);
-			return (-1);
+			if (next->number == number)
+			{
+				ft_putstr_fd("Error: duplicate numbers detected\n", 2);
+				EXIT_FAILURE;
+			}
+			next = next->next;
 		}
-		lst = lst->next;
+		current = current->next;
 	}
 	return (0);
 }
 
 long	ft_atoi(const char *str)
 {
-	long	i;
-	long	conv;
+	int		i;
+	int		conv;
 	long	result;
 
 	i = 0;
@@ -79,4 +90,19 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	return (result * conv);
+}
+
+void	ft_lstclear(t_list **lst)
+{
+	t_list	*temp;
+
+	if (lst == NULL)
+		return ;
+	while (*lst)
+	{
+		temp = *lst;
+		*lst = (*lst)->next;
+		free(temp);
+	}
+	*lst = NULL;
 }

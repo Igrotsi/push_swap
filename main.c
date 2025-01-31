@@ -1,30 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 01:47:25 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/30 09:53:04 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/01/31 05:17:42 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av, t_list **lst)
+int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	// t_list	*temp_a;
+	// t_list	*temp_b;
 
-	stack_b = NULL;
+	
 	stack_a = NULL;
-	if (ac < 2)
+	stack_b = NULL;
+	if (ac < 3)
 	{
-		ft_putstr_fd("Error: not enought arguments\n", 2);
+		ft_putstr_fd("Error: not enough arguments\n", 2);
 		return (-1);
 	}
-	if (init_stack_a(&stack_a, **av, ac) == -1)
-		return (-1);
+	init_stack_a(&stack_a, av, ac);
+	// swap(stack_a, 'a');
+	// push(&stack_b, &stack_a, 'b');
+	// temp_a = stack_a;
+	// temp_b = stack_b;
+	// while (temp_a)
+	// {
+	// 	printf("a : %d\n", temp_a->number);
+	// 	temp_a = temp_a->next;
+	// }
+	// while (temp_b)
+	// {
+	// 	printf("b : %d\n", temp_b->number);
+	// 	temp_b = temp_b->next;
+	// }
+	// push(&stack_b, &stack_a, 'b');
+	// swap(stack_b, 'b');
+	// rotate(stack_a, 'a');
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
 	return (0);
 }
