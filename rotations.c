@@ -6,21 +6,21 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:52:18 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/31 16:12:47 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:40:55 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *stack, char c)
+void	swap(t_list **stack, char c)
 {
 	int	temp;
 
-	if (!stack || !stack->next)
+	if (!stack || !(*stack)->next)
 		return ;
-	temp = stack->number;
-	stack->number = stack->next->number;
-	stack->next->number = temp;
+	temp = (*stack)->number;
+	(*stack)->number = (*stack)->next->number;
+	(*stack)->next->number = temp;
 	if (c == 'a')
 		ft_putstr_fd("sa\n", 1);
 	if (c == 'b')
@@ -45,8 +45,8 @@ void	push(t_list **pushed_into, t_list **pushed_out, char c)
 
 void	ss(t_list *stack_a, t_list *stack_b)
 {
-	swap(stack_a, 'c');
-	swap(stack_b, 'c');
+	swap(&stack_a, 'c');
+	swap(&stack_b, 'c');
 	ft_putstr_fd("ss\n", 1);
 }
 

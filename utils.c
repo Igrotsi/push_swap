@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:39:19 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/31 05:03:44 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:08:58 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ft_lstclear(t_list **lst)
 {
 	t_list	*temp;
 
-	if (lst == NULL)
+	if (*lst == NULL)
 		return ;
 	while (*lst)
 	{

@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 01:45:42 by flahalle          #+#    #+#             */
-/*   Updated: 2025/01/31 16:20:38 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:48:02 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_list				*ft_lstlast(t_list *stack);
 //
 //----------------------------------Rotations values-------------------------------------//
 //
-void				swap(t_list *lst, char c);
+void				swap(t_list **lst, char c);
 void				push(t_list **pushed_into, t_list **pushed_out, char c);
 void				ss(t_list *stack_a, t_list *stack_b);
 void				rotate(t_list **stack, char c);
@@ -54,6 +54,8 @@ int					ft_strlen(const char *str);
 int					ft_putstr_fd(char *s, int fd);
 long				ft_atoi(const char *str);
 void				free_stack(t_list *stack);
-void	ft_lstclear(t_list **lst);
-
+void				ft_lstclear(t_list **lst);
+//----------------------------------Algorythm--------------------------------------------//
+void				three_inputs(t_list **stack_a, t_list **stack_b);
+void				two_inputs(t_list	**stack_a);
 #endif

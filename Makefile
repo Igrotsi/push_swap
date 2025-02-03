@@ -6,6 +6,7 @@ SRC 		= 	main.c \
 				rotations.c \
 				manage_list.c \
 				reverse_rotate.c \
+				algo.c \
 				utils.c 
 OBJ 		= 	$(SRC:%.c=%.o)
 
