@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 01:47:25 by flahalle          #+#    #+#             */
-/*   Updated: 2025/02/03 17:09:55 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:51:06 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
-	// t_list	*stack_b;
+	t_list	*stack_b;
 	t_list	*temp_a;
-	// t_list	*temp_b;
+	t_list	*temp_b;
 
 	
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	if (ac <= 2)
 	{
 		ft_putstr_fd("Error: not enough arguments\n", 2);
@@ -32,21 +32,21 @@ int	main(int ac, char **av)
 	// push(&stack_b, &stack_a, 'b');
 	// push(&stack_b, &stack_a, 'b');
 	// push(&stack_b, &stack_a, 'b');
-	// three_inputs(&stack_a, &stack_b);
-	two_inputs(&stack_a);
+	three_inputs(&stack_a);
+	// two_inputs(&stack_a);
 	// rotate(&stack_a, 'a');
 	temp_a = stack_a;
-	// temp_b = stack_b;
+	temp_b = stack_b;
 	while (temp_a)
 	{
 		printf("a : %d\n", temp_a->number);
 		temp_a = temp_a->next;
 	}
-	// while (temp_b)
-	// {
-	// 	printf("b : %d\n", temp_b->number);
-	// 	temp_b = temp_b->next;
-	// }
+	while (temp_b)
+	{
+		printf("b : %d\n", temp_b->number);
+		temp_b = temp_b->next;
+	}
 	// push(&stack_b, &stack_a, 'b');
 	// swap(stack_b, 'b');
 	// rotate(&stack_a, 'a');

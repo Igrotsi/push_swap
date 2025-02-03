@@ -6,7 +6,7 @@
 /*   By: flahalle <flahalle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 01:45:42 by flahalle          #+#    #+#             */
-/*   Updated: 2025/02/03 16:48:02 by flahalle         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:51:00 by flahalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ long				ft_atoi(const char *str);
 void				free_stack(t_list *stack);
 void				ft_lstclear(t_list **lst);
 //----------------------------------Algorythm--------------------------------------------//
-void				three_inputs(t_list **stack_a, t_list **stack_b);
+void				three_inputs(t_list **stack_a);
 void				two_inputs(t_list	**stack_a);
 #endif
